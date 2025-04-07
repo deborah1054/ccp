@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url('im1.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff; /* White text color for better readability on darker backgrounds */
+        }
+
+        .container {
+            background: rgba(66, 65, 65, 0.8); /* Semi-transparent background for better visibility of text */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            width: 300px; /* Fixed width for better control */
+            margin-bottom: 20px;
+        }
+
+        h2, .movies-to-watch {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form, .movies-to-watch div {
+            background: transparent;
+        }
+
+        label, .movie-title {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            background: #fff;
+            color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #004494;
+        }
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        function submitBooking() {
+            var movieName = document.getElementById("movieName").value;
+            var numTickets = document.getElementById("numTickets").value;
+            var confirmationMessage = "You are about to book " + numTickets + " tickets for " + movieName + ". Proceed?";
+        
+            console.log("Confirmation message:", confirmationMessage); // Debug
+        
+            if (confirm(confirmationMessage)) {
+                console.log("Booking confirmed"); // Debug
+        
+                var paymentPageUrl = "payment.html"; // Make sure this URL is correct
+                console.log("Redirecting to:", paymentPageUrl); // Debug
+        
+                window.location.href = paymentPageUrl;
+            } else {
+                console.log("Booking canceled"); // Debug
+            }
+        }    
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="movie.html">Movies</a>
+        <a href="http://127.0.0.1:8000">Bookings</a>
+        <a href="confirmation.html">Payment</a>
+    </nav>
+    <div class="container">
+        <h2>Movie Ticket Booking</h2>
+        <form id="bookingForm" action="/submit_booking" method="POST">
+            <label for="movieName">Movie Name:</label>
+            <select id="movieName" name="movieName" required>
+                <option value="">Select a Movie</option>
+                <option value="The Dark Knight">The Dark Knight</option>
+                <option value="Inception">Inception</option>
+                <option value="Interstellar">Interstellar</option>
+                <option value="The Matrix">The Matrix</option>
+                <option value="Avatar">Avatar</option>
+                <option value="Star Wars: The Force Awakens">Star Wars: The Force Awakens</option>
+                <option value="Jurassic Park">Jurassic Park</option>
+                <option value="Titanic">Titanic</option>
+                <option value="The Godfather">The Godfather</option>
+                <option value="Pulp Fiction">Pulp Fiction</option>
+            </select>
+    
+            <label for="numTickets">Number of Tickets:</label>
+            <input type="number" id="numTickets" name="numTickets" min="1" required>
+    
+            <button type="button" onclick="submitBooking()">Submit</button>
+        </form>
+    </div>
+    <div class="container movies-to-watch">
+        <h3>Recommended Movies</h3>
+        <div>
+            <p class="movie-title">The Dark Knight</p>
+            <p>Experience the action-packed classic that redefined superhero movies! Playing now.</p>
+        </div>
+        <div>
+            <p class="movie-title">Inception</p>
+            <p>Dive into the dream within a dream with Christopher Nolan’s mind-bending masterpiece.</p>
+        </div>
+    </div>
+</body>
+</html>

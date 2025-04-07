@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Align children (like form and h2) vertically */
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ffffff;
+        }
+        h1 {
+            margin-top: 0;
+            padding-top: 20px; /* Space from top of the browser window */
+            font-size: 24px; /* Larger text for main heading */
+        }
+        h2 {
+            margin-top: 10px; /* Slight space between h1 and h2 */
+            padding-top: 10px;
+            font-size: 20px; /* Smaller text for sub-heading */
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            background-color: #0056b3;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004494;
+        }
+        .btn {
+            text-decoration: none;
+            padding: 8px 16px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="movie.html">Movies</a>
+        <a href="http://127.0.0.1:8000">Bookings</a>
+        <a href="confirmation.html">Payment</a>
+    </nav>
+    <h1>Welcome to Our Cinema</h1>
+    <h2>Movie Ticket Booking Form</h2>
+    <form action="/server" method="POST">
+        <label for="movieName">Movie Name:</label>
+        <select id="movieName" name="movieName" required>
+            <option value="">Select a Movie</option>
+            <!-- List of movies -->
+            <option value="The Dark Knight">The Dark Knight</option>
+            <option value="Inception">Inception</option>
+            <option value="Interstellar">Interstellar</option>
+            <option value="The Matrix">The Matrix</option>
+            <option value="Avatar">Avatar</option>
+            <option value="Star Wars: The Force Awakens">Star Wars: The Force Awakens</option>
+            <option value="Jurassic Park">Jurassic Park</option>
+            <option value="Titanic">Titanic</option>
+            <option value="The Godfather">The Godfather</option>
+            <option value="Pulp Fiction">Pulp Fiction</option>
+        </select><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br>
+
+        <label for="time">Show Time:</label>
+        <select id="time" name="time" required>
+            <option value="10:00">10:00 AM</option>
+            <option value="13:00">1:00 PM</option>
+            <option value="16:00">4:00 PM</option>
+            <option value="19:00">7:00 PM</option>
+            <option value="22:00">10:00 PM</option>
+        </select><br>
+
+        <label for="tickets">Number of Tickets:</label>
+        <input type="number" id="tickets" name="tickets" min="1" max="10" required><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required><br>
+
+        <label for="payment">Payment Method:</label>
+        <select id="payment" name="payment" required>
+            <option value="credit_card">Credit Card</option>
+            <option value="debit_card">Debit Card</option>
+            <option value="paypal">PayPal</option>
+        </select><br>
+
+        <label for="confirmTerms">
+            <input type="checkbox" id="confirmTerms" name="confirmTerms" required>I agree to the <a href="terms.html">Terms and Conditions</a>
+        </label><br>
+
+        <button type="submit">Submit</button><br>
+        <a href="/view" class="btn">View all bookings</a>
+    </form>
+</body>
+</html>

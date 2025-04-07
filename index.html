@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('backg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .card {
+            opacity: 0.9;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        .card:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        .container, .footer {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        header, .footer {
+            color: #333;
+            text-shadow: 1px 1px 2px #000;
+        }
+        .testimonial {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        .card-img-top {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="movie.html">Movies</a>
+        <a href="http://127.0.0.1:8000">Bookings</a>
+        <a href="confirmation.html">Payment</a>
+    </nav>
+    <div class="container">
+        <header class="text-center mt-3">
+            <h1>Welcome to Online Movie Tickets</h1>
+            <p>Book your movie tickets with ease!</p>
+        </header>
+        <div class="row mt-5">
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="twilight.png" alt="Twilight Movie Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Twilight</h5>
+                        <p class="card-text">Join Bella and Edward in their thrilling adventure in Forks.</p>
+                        <a href="payment.html" class="btn btn-primary">Book Tickets</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="inception.jpg" alt="Inception Movie Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Inception</h5>
+                        <p class="card-text">Dive deeper into the world of dreams with Dom Cobb and his team.</p>
+                        <a href="payment.html" class="btn btn-primary">Book Tickets</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="nun2.jpg" alt="The Nun Movie Image">
+                    <div class="card-body">
+                        <h5 class="card-title">The Nun</h5>
+                        <p class="card-text">After a priest is murdered, Sister Irene faces a demonic force once again.</p>
+                        <a href="payment.html" class="btn btn-primary">Book Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial">
+            <p>“Always a pleasure to book through Online Movie Tickets. They make it so easy!” – Jane Doe</p>
+        </div>
+    </div>
+    <footer class="footer text-center">
+        <p>Contact us at DeborahM@gmail.com | Follow us on social media: <a href="#">Facebook</a>, <a href="#">Twitter</a></p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $("header h1").hide().slideDown(1000);
+            $(".card").hide().fadeIn(2000);
+        });
+    </script>
+</body>
+</html>

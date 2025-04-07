@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <script>
+        function submitBooking() {
+            // Get form data
+            var movieName = document.getElementById("movieName").value;
+            var numTickets = document.getElementById("numTickets").value;
+
+            // Confirmation message
+            var confirmationMessage = "You are about to book " + numTickets + " tickets for " + movieName + ". Proceed to payment?";
+
+            // Show confirmation popup
+            var confirmBooking = confirm(confirmationMessage);
+
+            // If user confirms, submit the form and redirect to payment page
+            if (confirmBooking) {
+                // Simulate form submission here. Actual implementation may vary.
+                // document.getElementById("bookingForm").submit();
+
+                // Redirect to payment page
+                window.location.href = '/payment'; // Change '/payment' to your actual payment page URL
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Movie Ticket Booking</h2>
+    <form id="bookingForm" action="/submit_booking" method="POST">
+        <label for="movieName">Movie Name:</label>
+        <select id="movieName" name="movieName" required>
+            <option value="">Select a Movie</option>
+            <option value="The Dark Knight">The Dark Knight</option>
+            <option value="Inception">Inception</option>
+            <option value="Interstellar">Interstellar</option>
+            <!-- Add more movie options as needed -->
+        </select><br><br>
+
+        <label for="numTickets">Number of Tickets:</label>
+        <input type="number" id="numTickets" name="numTickets" min="1" required><br><br>
+
+        <button type="button" onclick="submitBooking()">Proceed to Payment</button>
+    </form>
+</body>
+</html>
